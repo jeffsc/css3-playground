@@ -1,0 +1,126 @@
+body
+{
+  background-color: #f0f0f0;
+  padding: 10em;
+}
+
+/* Box for the graphic part */
+.socrataLogo .logo
+{
+  display: inline-block;
+  height: 120px;
+  position: relative;
+  width: 120px;
+}
+
+/* Each ring uses a border to make the colored ring.
+ * Then the actual element is just for empty space */
+.socrataLogo .ring
+{
+  border: 10px solid #333333;
+  border-radius: 100%;
+  height: 83%;
+  position: relative;
+  width: 83%;
+  z-index: 1;
+}
+
+.socrataLogo .ring:before
+{
+  border: 10px solid #666666;
+  border-radius: 100%;
+  content: '';
+  display: block;
+  height: 67%;
+  left: 16.5%;
+  margin-left: -10px;
+  margin-top: -10px;
+  position: absolute;
+  top: 16.5%;
+  width: 67%;
+  z-index: 2
+}
+
+.socrataLogo .ring:after
+{
+  border: 10px solid #999999;
+  border-radius: 100%;
+  content: '';
+  display: block;
+  height: 33%;
+  left: 33.5%;
+  margin-left: -10px;
+  margin-top: -10px;
+  position: absolute;
+  top: 33.5%;
+  width: 33%;
+  z-index: 3;
+}
+
+/* Wedge is ghe outer whitespace to separate from the rings */
+.socrataLogo .wedge
+{
+  /* Create a half-box on the right, rotate it around the middle for the start of the slice,
+   * and clip the drawn wedge */
+  height: 110%; /* Make it go outside the rings */
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: -5%;
+  -webkit-transform-origin: left center;
+  -webkit-transform: rotate(15deg);
+  width: 55%;
+  z-index: 4;
+}
+
+.socrataLogo .wedge:before
+{
+  /* This is the actual visible piece. Draw a half-circle on the opposite side of the wedge element.
+   * Then rotate this just a bit to make a visible slice */
+  background-color: #f0f0f0;
+  border-radius: 9999px 0 0 9999px;
+  content: '';
+  display: block;
+  height: 100%;
+  left: -100%;
+  position: absolute;
+  -webkit-transform-origin: right center;
+  -webkit-transform: rotate(40deg);
+  width: 100%;
+}
+
+/* Now draw the red portion, and tweak it to sit within the whitespace */
+.socrataLogo .wedge .inner
+{
+  height: 75%;
+  left: 9%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -webkit-transform-origin: left center;
+  width: 75%;
+  z-index: 5;
+}
+
+.socrataLogo .wedge .inner:before
+{
+  background-color: #ff3333;
+  border-radius: 9999px 0 0 9999px;
+  content: '';
+  display: block;
+  height: 100%;
+  left: -100%;
+  position: absolute;
+  -webkit-transform-origin: right center;
+  -webkit-transform: rotate(40deg);
+  width: 100%;
+}
+
+.socrataLogo .text
+{
+  display: inline-block;
+  font-family: Helvetica;
+  font-size: 7em;
+  margin-left: 0.1em;
+  vertical-align: bottom;
+}
